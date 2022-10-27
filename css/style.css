@@ -1,0 +1,70 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: sans-serif;
+}
+
+body {
+    background-color: midnightblue;
+}
+
+.insertion-container {
+    text-align: center;
+    color: white;
+}
+
+.insertion-container input {
+    padding: .5rem 1rem;
+    margin: 5rem 2rem 5rem .5rem;
+    border-radius: 10px;
+    border: 2px solid greenyellow;
+    background-color: white;
+}
+
+.insertion-container input:focus {
+    outline: 2px solid greenyellow;
+    outline-offset: 1.5px;
+}
+
+.insertion-container input::placeholder {
+    color: midnightblue;
+}
+
+.insertion-container button {
+    padding: .25rem .5rem;
+    border-radius: 10px;
+    border: 2px solid greenyellow;
+    color: midnightblue;
+    background-color: white;
+}
+
+.insertion-container button:active {
+    background-color: greenyellow;
+    transform: scale(.9);
+}
+
+.tasks-container {
+    width: 70%;
+    max-width: 750px;
+    margin: 0 auto;
+    padding: 4rem;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.tasks-container li {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+    padding: .75rem .25rem;
+    color: midnightblue;
+    border-bottom: 1px solid midnightblue;
+}
+
+.tasks-container .task-delete {
+    color: red;
+}
