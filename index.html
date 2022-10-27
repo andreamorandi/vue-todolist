@@ -5,40 +5,42 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vue To Do List</title>
+
+    <!-- VUE FROM CDN -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <!-- CUSTOM STYLES -->
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <main>
-        <div class="insertion-container">
-            <label for="task-text">Nuovo Task</label>
-            <input type="text" id="task-text" placeholder="Inserisci nuovo task">
-            <button>Inserisci</button>
-        </div>
-        <div class="tasks-container">
-            <ul>
-                <li>
-                    <span>Task</span>
-                    <span class="task-delete">&cross;</span>
-                </li>
-                <li>
-                    <span>Task</span>
-                    <span class="task-delete">&cross;</span>
-                </li>
-                <li>
-                    <span>Task</span>
-                    <span class="task-delete">&cross;</span>
-                </li>
-                <li>
-                    <span>Task</span>
-                    <span class="task-delete">&cross;</span>
-                </li>
-                <li>
-                    <span>Task</span>
-                    <span class="task-delete">&cross;</span>
-                </li>
-            </ul>
-        </div>
-    </main>
+    <div id="app">
+        <main>
+            <div class="insertion-container">
+                <label for="task-text">Nuovo Task</label>
+                <input 
+                    type="text" 
+                    id="task-text" 
+                    placeholder="Inserisci nuovo task"
+                    v-model.trim="newTask.text"
+                    @keyup.enter="addNewTask"
+                >
+                <button @click="addNewTask">Aggiungi</button>
+            </div>
+            <div class="tasks-container">
+                <p v-if="tasks.length === 0">Tutti i tasks completati!</p>
+                <ul v-else>
+                    <li v-for="(task, index) in tasks">
+                        <span 
+                            :style="task.done ? 'text-decoration: line-through' : ''"
+                            @click="setDone(index)"
+                        >
+                        {{ task.text }}</span>
+                        <span class="task-delete" @click="removeTask(index)">&cross;</span>
+                    </li>
+                </ul>
+            </div>
+        </main>
+    </div>
 
     <script src="js/script.js"></script>
 </body>

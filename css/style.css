@@ -19,9 +19,9 @@ body {
 
 .insertion-container input {
     padding: .5rem 1rem;
-    margin: 5rem 2rem 5rem .5rem;
+    margin: 5rem 2rem 5rem .75rem;
     border-radius: 10px;
-    border: 2px solid greenyellow;
+    border: 2.5px solid greenyellow;
     background-color: white;
 }
 
@@ -37,7 +37,7 @@ body {
 .insertion-container button {
     padding: .25rem .5rem;
     border-radius: 10px;
-    border: 2px solid greenyellow;
+    border: 2.5px solid greenyellow;
     color: midnightblue;
     background-color: white;
 }
@@ -45,6 +45,10 @@ body {
 .insertion-container button:active {
     background-color: greenyellow;
     transform: scale(.9);
+}
+
+.insertion-container button:focus {
+    outline: none;
 }
 
 .tasks-container {
@@ -63,6 +67,10 @@ body {
     padding: .75rem .25rem;
     color: midnightblue;
     border-bottom: 1px solid midnightblue;
+}
+
+.tasks-container li span {
+    cursor: pointer;
 }
 
 .tasks-container .task-delete {
