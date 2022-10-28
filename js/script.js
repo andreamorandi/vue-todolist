@@ -3,10 +3,7 @@ const { createApp } = Vue;
 createApp({
     data() {
         return {
-            newTask: {
-                text: "",
-                done: false
-            },
+            newTask: "",
             tasks: [
                 {
                     text: "Finire commit",
@@ -29,9 +26,12 @@ createApp({
     },
     methods: {
         addNewTask() {
-            if (this.newTask.text) {
-                this.tasks.unshift({...this.newTask});
-                this.newTask.text = "";
+            if (this.newTask) {
+                this.tasks.unshift({
+                    text: this.newTask,
+                    done: false
+                });
+                this.newTask = "";
             }
         },
         removeTask(index) {
